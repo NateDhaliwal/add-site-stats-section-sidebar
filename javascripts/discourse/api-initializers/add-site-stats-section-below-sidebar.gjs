@@ -1,29 +1,40 @@
 import { apiInitializer } from "discourse/lib/api";
-import Component from "@ember/component";
+import Component from "@glimmer/component";
+import { tracked } from '@glimmer/tracking';
 
 export default apiInitializer((api) => {
   class SiteStatsSection extends Component {
-    const section = <template>
-    <section id="d-sidebar" class="sidebar-container">
-      <div class="sidebar-sections">
-        <div class="sidebar-custom-sections">
-          <div data-section-name="site-statistics" class="sidebar-section sidebar-section-wrapper sidebar-section--expanded">
-            <ul id="sidebar-section-content-site-statistics" class="sidebar-section-content">
-              <li data-list-item-name="everything" class="sidebar-section-link-wrapper">
-                <a id="ember7" class="ember-view active sidebar-section-link sidebar-row" title="All topics" data-link-name="everything" href="/latest">
-                  <span class="sidebar-section-link-prefix icon">
-                    <svg class="fa d-icon d-icon-layer-group svg-icon prefix-icon svg-string" xmlns="http://www.w3.org/2000/svg"><use href="#layer-group"></use></svg>
+    @tracked siteMembers;
+    @tracked siteTopics;
+    @tracked sitePosts;
+
+    async get StatsTemplate() {
+      let siteStats = await fetch("/about.json").then((response) => {return response.json()});
+      this.siteMembers = siteStats.users_count;
+      this.siteTopics = siteStats.topics_count;
+      this.sitePosts = siteStats.posts_count;
+      
+      const section = <template>
+      <section id="nd-d-sidebar" class="sidebar-container">
+        <div class="sidebar-sections">
+          <div class="sidebar-custom-sections">
+            <div data-section-name="site-statistics" class="sidebar-section sidebar-section-wrapper sidebar-section--expanded">
+              <ul id="sidebar-section-content-site-statistics" class="sidebar-section-content">
+                <li data-list-item-name="everything" class="sidebar-section-link-wrapper">
+                  <span>
+                    <h3>Statistiques</h3>
+                    <p>Membres: {{this.siteMembers}}</p>
+                    <p>Discussions: {{this.siteTopics}}</p>
+                    <p>Messages: {{this.sitePosts}}</p>
                   </span>
-                  <span class="sidebar-section-link-content-text">
-                    <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Topics</font></font>
-                  </span>
-                </a>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    </template>
+      </section>
+      </template>
+      
+    }
   }
 });
