@@ -12,7 +12,7 @@ export default class SiteStatsSection extends Component {
     this.siteMembers = siteStats.users_count;
     this.siteTopics = siteStats.topics_count;
     this.sitePosts = siteStats.posts_count;
-    
+
     const section = <template>
     <section id="nd-d-sidebar" class="sidebar-container">
       <div class="sidebar-sections">
@@ -32,6 +32,6 @@ export default class SiteStatsSection extends Component {
         </div>
       </div>
     </section>
-    </template>
+    </template>;
   }
 }
