@@ -7,8 +7,8 @@ export default class SiteStatsSection extends Component {
   @tracked siteTopics;
   @tracked sitePosts;
 
-  async get statsTemplate() {
-    let siteStats = await fetch("/about.json").then((response) => {return response.json()});
+  get statsTemplate() {
+    let siteStats = fetch("/about.json").then((response) => {return response.json()});
     this.siteMembers = siteStats.users_count;
     this.siteTopics = siteStats.topics_count;
     this.sitePosts = siteStats.posts_count;
@@ -33,6 +33,5 @@ export default class SiteStatsSection extends Component {
       </div>
     </section>
     </template>
-    
   }
 }
