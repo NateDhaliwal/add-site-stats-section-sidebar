@@ -8,7 +8,7 @@ export default apiInitializer((api) => {
     @tracked siteTopics;
     @tracked sitePosts;
 
-    async get StatsTemplate() {
+    async get statsTemplate() {
       let siteStats = await fetch("/about.json").then((response) => {return response.json()});
       this.siteMembers = siteStats.users_count;
       this.siteTopics = siteStats.topics_count;
