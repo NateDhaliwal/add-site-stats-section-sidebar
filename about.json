@@ -2,7 +2,9 @@
   "name": "Add site statistics section below sidebar",
   "component": true,
   "authors": "NateDhaliwal",
-  "about_url": "",
-  "license_url": "",
+  "about_url": "https://github.com/NateDhaliwal/add-site-stats-section-sidebar",
+  "license_url": "https://github.com/NateDhaliwal/add-site-stats-section-sidebar/LICENSE",
   "theme_version": "1.0.0",
+  "assets": {},
+  "modifiers": {}
 }
