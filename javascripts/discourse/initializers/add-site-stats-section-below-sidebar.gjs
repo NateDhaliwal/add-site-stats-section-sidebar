@@ -15,7 +15,10 @@ export default class SiteStatsSection extends Component {
     this.siteTopics = siteStats.topics_count;
     this.sitePosts = siteStats.posts_count;
 
-    const section = <template>
+    let statsSidebar = document.createElement("section");
+    statsSidebar.id = "nd-d-sidebar";
+    statsSidebar.class = "sidebar-container";
+    statsSidebar.innerHTML = `
     <section id="nd-d-sidebar" class="sidebar-container">
       <div class="sidebar-sections">
         <div class="sidebar-custom-sections">
@@ -34,6 +37,9 @@ export default class SiteStatsSection extends Component {
         </div>
       </div>
     </section>
-    </template>;
+    `;
+
+    let currentSidebar = document.getElementById("d-sidebar");
+    currentSidebar.parentNone.insertBefore(statsSidebar, currentSidebar.nextSibling);
   }
 }
