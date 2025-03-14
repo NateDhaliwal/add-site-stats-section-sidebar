@@ -27,9 +27,9 @@ export default class SiteStatsSection extends Component {
               <li data-list-item-name="everything" class="sidebar-section-link-wrapper">
                 <span>
                   <h3>Statistiques</h3>
-                  <p>Membres: {{this.siteMembers}}</p>
-                  <p>Discussions: {{this.siteTopics}}</p>
-                  <p>Messages: {{this.sitePosts}}</p>
+                  <p>Membres: ${this.siteMembers}</p>
+                  <p>Discussions: ${this.siteTopics}</p>
+                  <p>Messages: ${this.sitePosts}</p>
                 </span>
               </li>
             </ul>
