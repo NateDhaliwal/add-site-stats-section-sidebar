@@ -8,11 +8,10 @@ export default class SiteStatsSection extends Component {
   @tracked sitePosts;
 
   get statsTemplate() {
-    let siteStats = fetch("/about.json").json();
-    this.siteMembers = siteStats.users_count;
-    this.siteTopics = siteStats.topics_count;
-    this.sitePosts = siteStats.posts_count;
-    console.log(siteStats);
+    //let siteStats = fetch("/about.json");
+    //this.siteMembers = siteStats.users_count;
+    //this.siteTopics = siteStats.topics_count;
+    //this.sitePosts = siteStats.posts_count;
     /*
     let statsSidebar = document.createElement("section");
     statsSidebar.id = "nd-d-sidebar";
